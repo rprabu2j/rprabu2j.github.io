@@ -24,7 +24,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>My Home Floor Plan</title>
+<title>View home with Sweet Home 3D HTML5 Viewer</title>
 
 <!--  Copy the following scripts in your page header -->
 <script type="text/javascript" src="lib/big.min.js"></script>
@@ -83,11 +83,7 @@ body {
    </div>
   <div id="pdfview" class="hide">
 	<!-- <embed id = 'pdf' src="plan/MyHomeFloorPlan.pdf#zoom=Fit" width="100%" height="100%"></embed> -->
-	<object data="plan/MyHomeFloorPlan.pdf" type="application/pdf" width="100%" height="100%">
-	  <p>Your web browser doesn't have a PDF plugin.
-	  Instead you can <a href="plan/MyHomeFloorPlan.pdf">click here to
-	  download the PDF file.</a></p>
-	</object>
+	<iframe src="plan/MyHomeFloorPlan.pdf" width="100%" height="100%"></iframe>
   </div>
   <div id="3dview" class="show">  
 	  <div id="viewerNavigationDiv" style="margin: 10px">
