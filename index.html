@@ -38,6 +38,7 @@
 <script type="text/javascript" src="lib/triangulator.min.js"></script>
 <script type="text/javascript" src="lib/viewmodel.min.js"></script>
 <script type="text/javascript" src="lib/viewhome.min.js"></script>
+<script type="text/javascript" src='lib/webviewer.min.js'></script>
 
 <style type="text/css">
 /* To display the viewer in full screen, uncomment the 3 following styles */
@@ -83,7 +84,7 @@ body {
    </div>
   <div id="pdfview" class="hide">
 	<!-- <embed id = 'pdf' src="plan/MyHomeFloorPlan.pdf#zoom=Fit" width="100%" height="100%"></embed> -->
-	<iframe src="plan/MyHomeFloorPlan.pdf" width="100%" height="100%"></iframe>
+	<div id='viewer' style={{"width":"100%","height":"100%","margin":"0 auto"}}></div>
   </div>
   <div id="3dview" class="show">  
 	  <div id="viewerNavigationDiv" style="margin: 10px">
@@ -103,6 +104,28 @@ body {
 	  </div>  
    </div>
 <!-- Copy the following script to view your home in the previous canvas -->
+<script>
+  WebViewer({
+    path: '/lib', // path to the PDF.js Express'lib' folder on your server
+    licenseKey: 'Insert free license key here',
+    initialDoc: 'plan/MyHomeFloorPlan.pdf',
+    // initialDoc: '/path/to/my/file.pdf',  // You can also use documents on your server
+  }, document.getElementById('viewer'))
+  .then(instance => {
+    // now you can access APIs through the WebViewer instance
+    const { Core, UI } = instance;
+
+    // adding an event listener for when a document is loaded
+    Core.documentViewer.addEventListener('documentLoaded', () => {
+      console.log('document loaded');
+    });
+
+    // adding an event listener for when the page number has changed
+    Core.documentViewer.addEventListener('pageNumberUpdated', (pageNumber) => {
+      console.log(`Page number is: ${pageNumber}`);
+    });
+  });
+</script>
 <script type="text/javascript">
   changeView = function(value){
 	if (value == "PDF"){
