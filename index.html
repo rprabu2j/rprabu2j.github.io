@@ -108,7 +108,7 @@ body {
   WebViewer({
     path: '/lib', // path to the PDF.js Express'lib' folder on your server
     licenseKey: 'Insert free license key here',
-    initialDoc: 'plan/MyHomeFloorPlan.pdf',
+    initialDoc: '/plan/MyHomeFloorPlan.pdf',
     // initialDoc: '/path/to/my/file.pdf',  // You can also use documents on your server
   }, document.getElementById('viewer'))
   .then(instance => {
