@@ -24,7 +24,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>My Home Plan</title>
+<title>View home with Sweet Home 3D HTML5 Viewer</title>
 
 <!--  Copy the following scripts in your page header -->
 <script type="text/javascript" src="lib/big.min.js"></script>
@@ -46,7 +46,6 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   margin: 0;
-  font-size: 2rem;
 }
 #viewerCanvas {
   width: 100%;
@@ -69,14 +68,6 @@ body {
   top: 80px;
   left: 10px;
 }
-input[type=radio] {  
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  outline: none;
-  box-shadow: inset 0 0 0 2px #FFF;
-  border: 2px solid #CCC;
-}
 
 </style>
 </head>
@@ -88,11 +79,11 @@ input[type=radio] {
 	   <input  id="radio3dview" class="viewerComponent" name="viewer" type="radio" value="3D" onchange="changeView(value)" style="margin-top:20px; margin-left:14px;" checked />
 		  <label class="viewerComponent" for="radio3dview">3D View</label>
 	    <input  id="radiopdfview" class="viewerComponent" name="viewer" type="radio" value="PDF" onchange="changeView(value)" />
-		  <label class="viewerComponent" for="radiopdfview">Floor Plan</label>
+		  <label class="viewerComponent" for="radiopdfview">PDF  View</label>
    </div>
   <div id="pdfview" class="hide">
 	<!-- <embed id = 'pdf' src="plan/MyHomeFloorPlan.pdf#zoom=Fit" width="100%" height="100%"></embed> -->
-	<iframe id="pdf-js-viewer" src="lib/web/viewer.html?file=/plan/MyHomeFloorPlan.pdf" title="webviewer" frameborder="0" width="100%" height="100%"></iframe>
+	<iframe src="plan/MyHomeFloorPlan.pdf#zoom=Fit" width="100%" height="100%"></iframe>
   </div>
   <div id="3dview" class="show">  
 	  <div id="viewerNavigationDiv" style="margin: 10px">
@@ -100,7 +91,7 @@ input[type=radio] {
 		  <label class="viewerComponent" for="aerialView" style="visibility: hidden;">Aerial view</label>
 		<input  id="virtualVisit" class="viewerComponent" name="cameraType" type="radio" style="visibility: hidden;"/>
 		  <label class="viewerComponent" for="virtualVisit" style="visibility: hidden;">Virtual visit</label>
-		<select id="levelsAndCameras" class="viewerComponent" style="visibility: hidden; font-size: 2rem"></select>
+		<select id="levelsAndCameras" class="viewerComponent" style="visibility: hidden;"></select>
 	  </div>  
 	  
 	  <!-- Copy the following canvas and components in your page, changing their size / texts and other values if needed  -->
@@ -111,7 +102,6 @@ input[type=radio] {
 		<label id="viewerProgressLabel" class="viewerComponent" style="margin-top: 2px; display: block; margin-left: 10px"></label>
 	  </div>  
    </div>
-
 <!-- Copy the following script to view your home in the previous canvas -->
 <script type="text/javascript">
   changeView = function(value){
